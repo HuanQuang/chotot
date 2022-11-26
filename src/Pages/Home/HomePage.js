@@ -4,7 +4,7 @@ import Category from '../../components/BannerAds/Category';
 import NewList from '../../components/NewList/NewList';
 export default function HomePage() {
     return (
-        <div className="max-w-[936px] mx-auto relative bg-white">
+        <div className="max-w-[960px] mx-auto relative bg-white">
             <Slider />
             <SubBanner />
             <Category />
