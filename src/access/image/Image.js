@@ -1,5 +1,6 @@
 export const Image = {
     logo: require('../image/transparent_logo.png'),
+    logo2: require('../image/logo-2.png'),
 };
 export const SliderImg = [
     { src: require('../image/slider1.png') },
@@ -37,3 +38,8 @@ export const CategoryImg = [
     { src: require('../image/dodungvanphong.webp'), title: 'Đồ dùng văn phòng, công nông nghiệp' },
     { src: require('../image/chotang.webp'), title: 'Cho tặng miễn phí' },
 ];
+export const FooterImg = {
+    qr: require('../image/group-qr.jpeg'),
+    huawei: require('../image/huawei.webp'),
+    certificate: require('../image/cerfiticate.png'),
+};

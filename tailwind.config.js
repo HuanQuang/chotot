@@ -4,19 +4,25 @@ module.exports = {
   mode: "jit",
   theme: {
     screens: {
-      xl: { max: "1279px" },
-      // => @media (max-width: 1279px) { ... }
-
-      lg: { max: "1023px" },
-      // => @media (max-width: 1023px) { ... }
-
-      md: { max: "767px" },
-      // => @media (max-width: 767px) { ... }
-
-      sm: { max: "639px" },
-      // => @media (max-width: 639px) { ... }
+      sm: { min: "540px" },
+      md: { min: "680px" },
+      lg: { min: "780px" },
     },
+
+    // screens: {
+    //   xl: { max: "1279px" },
+    //   // => @media (max-width: 1279px) { ... }
+
+    //   lg: { max: "1023px" },
+    //   // => @media (max-width: 1023px) { ... }
+
+    //   md: { max: "767px" },
+    //   // => @media (max-width: 767px) { ... }
+
+    //   sm: { max: "639px" },
+    //   // => @media (max-width: 639px) { ... }
+    // },
     extend: {},
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/line-clamp")],
 };

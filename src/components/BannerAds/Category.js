@@ -5,7 +5,26 @@ function Category() {
     return (
         <div className="py-3 w-full">
             <h4 className="mb-3 pl-3 text-[17px] text-[rgb(34,34,34)] font-bold">Khám phá danh mục</h4>
-            <Swiper slidesPerView={6} spaceBetween={0}>
+            <Swiper
+                slidesPerView={6}
+                breakpoints={{
+                    200: {
+                        slidesPerView: 2,
+                    },
+                    340: {
+                        slidesPerView: 3,
+                    },
+                    460: {
+                        slidesPerView: 4,
+                    },
+                    620: {
+                        slidesPerView: 5,
+                    },
+                    860: {
+                        slidesPerView: 6,
+                    },
+                }}
+            >
                 {CategoryImg.map((item, key) => {
                     return (
                         <SwiperSlide key={key}>

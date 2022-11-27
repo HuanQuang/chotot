@@ -44,8 +44,8 @@ function NewList() {
             location: 'tp.Nha Trang',
         },
     ];
-    const renderList = list.map((item) => {
-        return <Product props={item} />;
+    const renderList = list.map((item, key) => {
+        return <Product props={[item, key]} />;
     });
     return (
         <div className="w-full">
