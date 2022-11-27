@@ -318,6 +318,119 @@ const AvatarIcon = () => {
         </svg>
     );
 };
+const LoginFbIcon = () => {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 48 48">
+            <defs>
+                <filter id="532pgqtx3a" width="130%" height="130%" x="-15%" y="-15%" filterUnits="objectBoundingBox">
+                    <feMorphology in="SourceAlpha" operator="dilate" radius=".5" result="shadowSpreadOuter1" />
+                    <feOffset in="shadowSpreadOuter1" result="shadowOffsetOuter1" />
+                    <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="1.5" />
+                    <feColorMatrix
+                        in="shadowBlurOuter1"
+                        values="0 0 0 0 0.792156863 0 0 0 0 0.792156863 0 0 0 0 0.792156863 0 0 0 0.5 0"
+                    />
+                </filter>
+                <circle id="a5d13cb0bb" cx="20" cy="20" r="20" />
+                <path id="4h7x5ewx3c" d="M0.478 0.586L17.088 0.586 17.088 32.195 0.478 32.195z" />
+            </defs>
+            <g fill="none" fill-rule="evenodd">
+                <g>
+                    <g>
+                        <g transform="translate(-79 -450) translate(83 454) translate(11.732 7.805)">
+                            <mask id="mklme7j96d" fill="#fff"></mask>
+                            <path
+                                fill="#FFF"
+                                d="M16 18.233l.86-5.678h-5.385V8.871c0-1.554.752-3.067 3.164-3.067h2.449V.971S14.865.586 12.741.586c-4.435 0-7.333 2.72-7.333 7.642v4.327H.478v5.678h4.93v13.724c.988.156 2 .238 3.033.238 1.032 0 2.045-.082 3.034-.238V18.233H16z"
+                                mask="url(#mklme7j96d)"
+                            />
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </svg>
+    );
+};
+const LoginGoogleIcon = () => {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 48 48">
+            <defs>
+                <filter id="9ore3oypta" width="130%" height="130%" x="-15%" y="-15%" filterUnits="objectBoundingBox">
+                    <feMorphology in="SourceAlpha" operator="dilate" radius=".5" result="shadowSpreadOuter1" />
+                    <feOffset in="shadowSpreadOuter1" result="shadowOffsetOuter1" />
+                    <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="1.5" />
+                    <feColorMatrix
+                        in="shadowBlurOuter1"
+                        values="0 0 0 0 0.792156863 0 0 0 0 0.792156863 0 0 0 0 0.792156863 0 0 0 0.5 0"
+                    />
+                </filter>
+                <circle id="fjmqg9678b" cx="20" cy="20" r="20" />
+            </defs>
+            <g fill="none" fill-rule="evenodd">
+                <g>
+                    <g>
+                        <g>
+                            <g fill-rule="nonzero">
+                                <path
+                                    fill="#4285F4"
+                                    d="M19.579 10.234c0-.677-.055-1.359-.172-2.025h-9.403v3.839h5.384c-.223 1.238-.941 2.333-1.992 3.029v2.49h3.212c1.887-1.735 2.97-4.3 2.97-7.333z"
+                                    transform="translate(-135 -450) translate(83 454) translate(56) translate(10 10)"
+                                />
+                                <path
+                                    fill="#34A853"
+                                    d="M10.004 19.974c2.688 0 4.956-.882 6.608-2.406l-3.213-2.491c-.894.608-2.047.952-3.392.952-2.6 0-4.806-1.754-5.597-4.113H1.095v2.568c1.693 3.366 5.14 5.49 8.909 5.49z"
+                                    transform="translate(-135 -450) translate(83 454) translate(56) translate(10 10)"
+                                />
+                                <path
+                                    fill="#FBBC04"
+                                    d="M4.407 11.916c-.418-1.238-.418-2.579 0-3.817V5.53H1.095c-1.414 2.817-1.414 6.136 0 8.953l3.312-2.568z"
+                                    transform="translate(-135 -450) translate(83 454) translate(56) translate(10 10)"
+                                />
+                                <path
+                                    fill="#EA4335"
+                                    d="M10.004 3.982c1.42-.022 2.795.513 3.824 1.494l2.846-2.846C14.872.938 12.48.007 10.004.037c-3.77 0-7.216 2.124-8.909 5.494L4.407 8.1c.787-2.363 2.996-4.117 5.597-4.117z"
+                                    transform="translate(-135 -450) translate(83 454) translate(56) translate(10 10)"
+                                />
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </svg>
+    );
+};
+const LoginAppleIcon = () => {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 48 48">
+            <defs>
+                <filter id="h7zh8y8k0a" width="130%" height="130%" x="-15%" y="-15%" filterUnits="objectBoundingBox">
+                    <feMorphology in="SourceAlpha" operator="dilate" radius=".5" result="shadowSpreadOuter1" />
+                    <feOffset in="shadowSpreadOuter1" result="shadowOffsetOuter1" />
+                    <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="1.5" />
+                    <feColorMatrix
+                        in="shadowBlurOuter1"
+                        values="0 0 0 0 0.792156863 0 0 0 0 0.792156863 0 0 0 0 0.792156863 0 0 0 0.5 0"
+                    />
+                </filter>
+                <circle id="bh3v402t2b" cx="20" cy="20" r="20" />
+            </defs>
+            <g fill="none" fill-rule="evenodd">
+                <g>
+                    <g>
+                        <g>
+                            <path
+                                fill="#000"
+                                fill-rule="nonzero"
+                                d="M25.113 19.026c.03 3.14 2.756 4.186 2.786 4.2-.023.073-.436 1.489-1.436 2.951-.865 1.264-1.763 2.524-3.177 2.55-1.39.026-1.837-.824-3.426-.824-1.588 0-2.084.798-3.4.85-1.365.051-2.405-1.368-3.277-2.627-1.782-2.577-3.144-7.281-1.315-10.457.908-1.577 2.532-2.575 4.294-2.601 1.34-.026 2.606.902 3.426.902.818 0 2.356-1.115 3.972-.952.677.029 2.577.274 3.796 2.059-.098.061-2.266 1.323-2.243 3.949m-2.611-7.712c.725-.878 1.212-2.099 1.08-3.314-1.045.042-2.309.696-3.058 1.573-.672.776-1.26 2.02-1.101 3.21 1.164.09 2.354-.591 3.079-1.47"
+                                transform="translate(-247 -450) translate(83 454) translate(168)"
+                            />
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </svg>
+    );
+};
 export {
     HomeIcon,
     PersonIcon,
@@ -333,4 +446,7 @@ export {
     YoutubeIcon,
     LinkInIcon,
     AvatarIcon,
+    LoginAppleIcon,
+    LoginFbIcon,
+    LoginGoogleIcon,
 };

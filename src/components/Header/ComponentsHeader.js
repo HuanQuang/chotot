@@ -89,7 +89,7 @@ const More = function ({ props }) {
 };
 const SearchBtn = function () {
     return (
-        <div className="w-full flex lg:w-2/3 bg-white rounded justify-between items-center">
+        <div className="w-full flex lg:w-2/3 bg-white rounded justify-between items-center duration-200">
             <input
                 className="h-9 bg-white rounded text-[#222222] text-sm pr-9 pl-[10px] grow"
                 placeholder="Tìm kiếm trên Chợ Tốt"

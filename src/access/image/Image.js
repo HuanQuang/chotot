@@ -43,3 +43,6 @@ export const FooterImg = {
     huawei: require('../image/huawei.webp'),
     certificate: require('../image/cerfiticate.png'),
 };
+export const LoginImg = {
+    logo: require('../image/logo_login.svg').default,
+};

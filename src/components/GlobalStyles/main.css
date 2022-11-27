@@ -27,11 +27,24 @@ input {
     background-attachment: fixed;
     background-size: 100%;
 }
+.backgroundLogin {
+    background: url('../../access/image/login_desktop_background.webp') no-repeat;
+    /* background-attachment: fixed; */
+    background-size: cover;
+}
 .swiper-pagination-bullet.swiper-pagination-bullet-active {
     background-color: #9b9b9b;
 }
 .productShadow:hover {
     box-shadow: 0 1px 7px 0 rgb(0 0 0 / 30%);
+}
+.loginShadow {
+    box-shadow: 0 0 8px rgb(0 0 0 / 30%);
+}
+@media screen and (max-width: 779px) {
+    .loginShadow {
+        box-shadow: unset;
+    }
 }
 @tailwind base;
 @tailwind components;
