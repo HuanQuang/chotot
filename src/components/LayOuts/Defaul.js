@@ -5,7 +5,7 @@ function LayOutDefaul({ children }) {
         <>
             <div className="">
                 <Header />
-                <div className="pt-[100px] background">{children}</div>
+                <div className="pt-[100px] ">{children}</div>
                 <Footer />
             </div>
         </>

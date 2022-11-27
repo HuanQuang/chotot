@@ -46,3 +46,10 @@ export const FooterImg = {
 export const LoginImg = {
     logo: require('../image/logo_login.svg').default,
 };
+export const ChatIcon = [
+    { src: require('../image/emptyRoom.png'), title: 'Tích cực chat, chốc lát chốc đơn' },
+    {
+        src: require('../image/emptyRoom2.png'),
+        title: 'Mẹo! Chat giúp làm sáng tỏ thêm thông tin, tăng hiệu quả mua bán',
+    },
+];

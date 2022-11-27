@@ -34,7 +34,7 @@ function Login() {
                     </button>
                 </form>
                 <div className="pt-2 flex flex-col items-center">
-                    <a className="text-xs mb-2 text-[#38699f]">Bạn quên mật khẩu?</a>
+                    <Link className="text-xs mb-2 text-[#38699f]">Bạn quên mật khẩu?</Link>
                     <p className="text-xs mt-5 text-[#9b9b9b]">hoặc sử dụng</p>
                     <div className="flex mt-4 mb-5">
                         <div className="mr-4">
