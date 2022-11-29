@@ -8,9 +8,12 @@
 body {
     overflow-x: hidden;
     font-family: 'Roboto', sans-serif;
+    min-height: 100%;
 }
 html {
     scroll-behavior: smooth;
+    min-height: 100%;
+    background: #f1f1f1;
 }
 i:hover {
     cursor: Pointer;
@@ -29,7 +32,6 @@ input {
 }
 .backgroundLogin {
     background: url('../../access/image/login_desktop_background.webp') no-repeat;
-    /* background-attachment: fixed; */
     background-size: cover;
 }
 .swiper-pagination-bullet.swiper-pagination-bullet-active {
@@ -40,6 +42,9 @@ input {
 }
 .loginShadow {
     box-shadow: 0 0 8px rgb(0 0 0 / 30%);
+}
+.profileShadow {
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
 }
 @media screen and (max-width: 779px) {
     .loginShadow {

@@ -4,13 +4,13 @@ import { LoginImg } from '../../access/image/Image';
 import { LoginFbIcon, LoginAppleIcon, LoginGoogleIcon } from '../../access/svg/svg';
 function Register() {
     return (
-        <div className="max-w-[960px] mx-auto backgroundLogin">
-            <div className="hidden lg:flex mt-4">
-                <Link className="text-xs text-[#2a5079]" to={PublicRouter.HomePage.path}>
+        <div className="max-w-[960px] mx-auto backgroundLogin min-h-[530px]">
+            <div className="hidden lg:flex mt-4 items-center ">
+                <Link className="text-xs text-[#2a5079]" to={PublicRouter.HomePage}>
                     Trang chủ
                 </Link>
                 <span className="text-[10px] text-[#9b9b9b] mx-1 leading-[2] flex items-center">&#8250;&#8250;</span>
-                <Link className="text-xs text-[#2a5079]" to={PublicRouter.Login.path}>
+                <Link className="text-xs text-[#2a5079]" to={PublicRouter.Login}>
                     Đăng nhập
                 </Link>
                 <span className="text-[10px] text-[#9b9b9b] mx-1 leading-[2] flex items-center">&#8250;&#8250;</span>
@@ -35,7 +35,7 @@ function Register() {
                     ></input>
                     <button className="rounded font-normal bg-[#cacaca] text-[#fff] text-sm py-2 px-4">Đăng ký</button>
                 </form>
-                <div className="pt-2 flex flex-col items-center">
+                <div className="pt-2 flex flex-col items-center mb-4">
                     <p className="text-xs mb-2 text-[#222] text-center">
                         Bằng việc Đăng ký, bạn đã đồng ý với{' '}
                         <a
@@ -60,7 +60,7 @@ function Register() {
                     </div>
                     <div className="text-xs mb-2">
                         Bạn đã có tài khoản?{' '}
-                        <Link to={PublicRouter.Login.path} className="text-[#38699f]">
+                        <Link to={PublicRouter.Login} className="text-[#38699f]">
                             Đăng nhập
                         </Link>
                     </div>

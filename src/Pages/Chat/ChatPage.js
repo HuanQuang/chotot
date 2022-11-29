@@ -1,24 +1,13 @@
+import ChatBoard from './ChatBoard';
 import Slider from './Slider';
 export default function ChatPage() {
     return (
-        <div className="max-w-[960px] mx-auto flex justify-between">
-            <div className="">
-                <div className="flex">
-                    <h3 className="">Chat</h3>
-                    <div className="flex">
-                        <button className="">Tất cả</button>
-                        <button className="">Tôi mua</button>
-                        <button className="">Tôi bán</button>
-                    </div>
+        <div className="max-w-[960px] mx-auto flex justify-between bg-[#fff] h-[-webkit-fill-available]">
+            <ChatBoard />
+            <div className="w-3/5 p-12 flex justify-center">
+                <div className="w-[400px] mx-auto mt-12">
+                    <Slider />
                 </div>
-                <div className=""></div>
-                <div className="">
-                    <i className="fa-solid fa-trash"></i>
-                    <span className="">Xoá cuộc trò chuyện</span>
-                </div>
-            </div>
-            <div className="w-3/5 p-12">
-                <Slider />
             </div>
         </div>
     );

@@ -5,16 +5,21 @@ import BuyerPage from '../Pages/Buyer/BuyerPage';
 import SellerPage from '../Pages/Seller/SellerPage';
 import ChatPage from '../Pages/Chat/ChatPage';
 import LayOutDefaul from '../components/LayOuts/Defaul';
+import NotFooterLayOut from '../components/LayOuts/NotFooter';
 import Login from '../Pages/Auth/Login';
 import Register from '../Pages/Auth/Register';
+import Profile from '../Pages/Profile/Profile';
+import Empty from '../Pages/Buyer/EmptyOrder';
+import AddPhone from '../Pages/Auth/AddPhone/AddPhone';
 export const PublicRouter = {
-    HomePage: { path: '/', component: HomePage },
-    AdsPage: { path: '/ads', component: AdsPage },
-    BuyerPage: { path: '/buyer', component: BuyerPage },
-    SellerPage: { path: '/seller', component: SellerPage },
-    ChatPage: { path: '/chat', component: ChatPage },
-    Login: { path: '/login', component: Login },
-    Register: { path: '/register', component: Register },
+    HomePage: '/',
+    AdsPage: '/ads',
+    BuyerPage: '/buyer',
+    SellerPage: '/seller',
+    ChatPage: '/chat',
+    Login: '/login',
+    Register: '/register',
+    Profile: '/profile',
 };
 export default function Routers() {
     return (
@@ -43,7 +48,13 @@ export default function Routers() {
                         </LayOutDefaul>
                     }
                     path="/buyer"
-                />
+                >
+                    <Route path="waiting_confirm" element={<Empty />} />
+                    <Route path="order_processing" element={<Empty />} />
+                    <Route path="order_delivering" element={<Empty />} />
+                    <Route path="order_delivered" element={<Empty />} />
+                    <Route path="order_cancel" element={<Empty />} />
+                </Route>
                 <Route
                     element={
                         <LayOutDefaul>
@@ -51,12 +62,18 @@ export default function Routers() {
                         </LayOutDefaul>
                     }
                     path="/seller"
-                />
+                >
+                    <Route path="waiting_confirm" element={<Empty />} />
+                    <Route path="order_processing" element={<Empty />} />
+                    <Route path="order_delivering" element={<Empty />} />
+                    <Route path="order_delivered" element={<Empty />} />
+                    <Route path="order_cancel" element={<Empty />} />
+                </Route>
                 <Route
                     element={
-                        <LayOutDefaul>
+                        <NotFooterLayOut>
                             <ChatPage />
-                        </LayOutDefaul>
+                        </NotFooterLayOut>
                     }
                     path="/chat"
                 />
@@ -67,7 +84,9 @@ export default function Routers() {
                         </LayOutDefaul>
                     }
                     path="/login"
-                />
+                >
+                    <Route path="social_connect" element={<AddPhone />} />
+                </Route>
                 <Route
                     element={
                         <LayOutDefaul>
@@ -75,6 +94,14 @@ export default function Routers() {
                         </LayOutDefaul>
                     }
                     path="/register"
+                />
+                <Route
+                    element={
+                        <LayOutDefaul>
+                            <Profile />
+                        </LayOutDefaul>
+                    }
+                    path="/profile"
                 />
             </Routes>
         </BrowserRouter>

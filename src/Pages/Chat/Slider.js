@@ -6,9 +6,9 @@ import 'swiper/css/pagination';
 function Slider() {
     const slide = ChatIcon.map((item, key) => {
         return (
-            <SwiperSlide key={key} className="w-[400px] mx-auto">
-                <img className="w-[400px]" src={item.src} alt="img"></img>
-                <h3 className="text-base font-bold text-center w-[400px]">{item.title}</h3>
+            <SwiperSlide key={key} className="w-[400px]">
+                <img className="" src={item.src} alt="img"></img>
+                <h3 className="text-base font-bold text-center w-4/5 mx-auto">{item.title}</h3>
             </SwiperSlide>
         );
     });
@@ -22,7 +22,7 @@ function Slider() {
                 disableOnInteraction: false,
             }}
             pagination={{
-                currentClass: 'text-red',
+                el: '.mb-4',
                 clickable: true,
             }}
             loop={true}

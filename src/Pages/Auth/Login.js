@@ -4,9 +4,9 @@ import { LoginImg } from '../../access/image/Image';
 import { LoginFbIcon, LoginAppleIcon, LoginGoogleIcon } from '../../access/svg/svg';
 function Login() {
     return (
-        <div className="max-w-[960px] mx-auto backgroundLogin">
-            <div className="hidden lg:flex mt-4">
-                <Link className="text-xs text-[#2a5079]" to={PublicRouter.HomePage.path}>
+        <div className="max-w-[960px] mx-auto backgroundLogin min-h-[530px]">
+            <div className="hidden lg:flex mt-4 items-center">
+                <Link className="text-xs text-[#2a5079]" to={PublicRouter.HomePage}>
                     Trang chủ
                 </Link>
                 <span className="text-[10px] text-[#9b9b9b] mx-1 leading-[2] flex items-center">&#8250;&#8250;</span>
@@ -33,7 +33,7 @@ function Login() {
                         Đăng nhập
                     </button>
                 </form>
-                <div className="pt-2 flex flex-col items-center">
+                <div className="pt-2 flex flex-col items-center mb-4">
                     <Link className="text-xs mb-2 text-[#38699f]">Bạn quên mật khẩu?</Link>
                     <p className="text-xs mt-5 text-[#9b9b9b]">hoặc sử dụng</p>
                     <div className="flex mt-4 mb-5">
@@ -49,7 +49,7 @@ function Login() {
                     </div>
                     <div className="text-xs mb-2">
                         Chưa có tài khoản?{' '}
-                        <Link to={PublicRouter.Register.path} className="text-[#38699f]">
+                        <Link to={PublicRouter.Register} className="text-[#38699f]">
                             Đăng kí ngay
                         </Link>
                     </div>

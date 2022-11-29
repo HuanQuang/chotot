@@ -28,7 +28,7 @@ function PcScreen() {
             <div className="flex-grow">
                 <h3 className="mb-3 font-bold text-[ #222222] text-[14px]">TẢI ỨNG DỤNG CHỢ TỐT</h3>
                 <div className="flex">
-                    <img className="w-[87px] h-[87px] pr-3" src={FooterImg.qr} alt="qr-code"></img>
+                    <img className="w-[87px] h-[87px] mr-3" src={FooterImg.qr} alt="qr-code"></img>
                     <div className="flex-col pr-3">
                         <div className="w-[93px] mr-4 mb-3">
                             <AppStoreIcon />
