@@ -27,8 +27,8 @@ function SubBanner() {
             >
                 {SubBannerImg.map((item, key) => {
                     return (
-                        <SwiperSlide>
-                            <Link className="flex flex-col justify-start items-center text-center w-[111px]" key={key}>
+                        <SwiperSlide key={key}>
+                            <Link className="flex flex-col justify-start items-center text-center w-[111px]">
                                 <img className="w-[33px]" src={item.src} alt="img"></img>
                                 <p className="text-[14px] my-[2px]">{item.title}</p>
                             </Link>

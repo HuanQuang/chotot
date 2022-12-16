@@ -20,9 +20,9 @@ function Slider() {
                 }}
                 loop={true}
             >
-                {SliderImg.map((item) => {
+                {SliderImg.map((item, key) => {
                     return (
-                        <SwiperSlide>
+                        <SwiperSlide key={key}>
                             <img src={item.src} alt="img"></img>
                         </SwiperSlide>
                     );

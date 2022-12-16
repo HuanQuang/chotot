@@ -1,22 +1,15 @@
 import { AppStoreIcon, GooglePlayIcon, FbIcon, YoutubeIcon, LinkInIcon } from '../../access/svg/svg';
 import { FooterImg } from '../../access/image/Image';
+import { DataFooter } from '../../utils/constants/Constant';
 function PcScreen() {
-    const supportList = [
-        'Trung tâm trợ giúp',
-        'An toàn mua bán',
-        'Quy định cần biết',
-        'Quy chế quyền riêng tư',
-        'Liên hệ hỗ trợ',
-    ];
-    const aboutList = ['Giới thiệu', 'Tuyển dụng', 'Truyền thông', 'Blog'];
-    const supportRender = supportList.map((item, key) => {
+    const supportRender = DataFooter.supportList.map((item, key) => {
         return (
             <li className="text-[14px] mr-4 mb-3" key={key}>
                 <button className="">{item}</button>
             </li>
         );
     });
-    const aboutListRender = aboutList.map((item, key) => {
+    const aboutListRender = DataFooter.aboutList.map((item, key) => {
         return (
             <li key={key} className="text-[14px] mr-4 mb-3">
                 <button className="">{item}</button>

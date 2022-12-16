@@ -46,6 +46,15 @@ input {
 .profileShadow {
     box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
 }
+.avatarShadow {
+    box-shadow: 0 0 3px 0 rgb(0 0 0 / 20%);
+}
+.popupShadow {
+    box-shadow: 0px 4px 8px rgb(0 0 0 / 10%);
+}
+.popupShadow1 {
+    box-shadow: 0px 0px 6px rgb(0 0 0 / 15%);
+}
 @media screen and (max-width: 779px) {
     .loginShadow {
         box-shadow: unset;

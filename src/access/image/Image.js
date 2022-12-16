@@ -53,5 +53,11 @@ export const ChatIcon = [
         title: 'Mẹo! Chat giúp làm sáng tỏ thêm thông tin, tăng hiệu quả mua bán',
     },
 ];
+export const MoreIcon = {
+    Point: require('../image/svgexport-4.svg').default,
+    Gold: require('../image/svgexport-5.svg').default,
+    DT: require('../image/dt.webp'),
+};
+
 export const BuyerImg = { empty: require('../image/empty_order.png') };
 export const ProfileImg = { notFound: require('../image/not-found.svg').default };

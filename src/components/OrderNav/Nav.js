@@ -1,16 +1,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { TabOrder } from '../../utils/constants/Constant';
 function Nav() {
     const [active, setActive] = useState(0);
-    const tab = [
-        { key: 0, title: 'Chờ xác nhận', url: 'waiting_confirm' },
-        { key: 1, title: 'Đang xử lí', url: 'order_processing' },
-        { key: 2, title: 'Đang giao', url: 'order_delivering' },
-        { key: 3, title: 'Đã giao', url: 'order_delivered' },
-        { key: 4, title: 'Hoàn tiền/Đã huỷ', url: 'order_cancel' },
-    ];
     const activeClass = 'opacity-100 border-b-4 border-[#FFBA00] border-solid ';
-    const renderTab = tab.map((item) => {
+    const renderTab = TabOrder.map((item) => {
         return (
             <Link
                 key={item.key}

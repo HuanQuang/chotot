@@ -1,7 +1,15 @@
 import { Image } from '../../access/image/Image';
-import { HeaderComponent } from './ComponentsHeader';
 import { useEffect, useState } from 'react';
-export default function Header() {
+import Home from './componentsHeader/Home';
+import Chat from './componentsHeader/Chat';
+import SignIn from './componentsHeader/Login';
+import More from './componentsHeader/More/More';
+import Notify from './componentsHeader/Notify';
+import Order from './componentsHeader/Order';
+import Post from './componentsHeader/Post';
+import Search from './componentsHeader/Search';
+import Social from './componentsHeader/Social';
+function Header() {
     const [logo, setLogo] = useState(true);
     useEffect(() => {
         const handleScroll = () => {
@@ -15,12 +23,12 @@ export default function Header() {
                 <div className={`w-full h-[52px] ${logo ? 'flex' : 'hidden'} items-center justify-center lg:flex`}>
                     <img className="w-[96px] h-9 cursor-pointer" src={Image.logo} alt="Logo"></img>
                     <div className="hidden lg:flex justify-end grow text-sm tracking-[0.1px]">
-                        <HeaderComponent.HomeBtn />
-                        <HeaderComponent.SocialBtn />
-                        <HeaderComponent.Orderbtn />
-                        <HeaderComponent.ChatBtn />
-                        <HeaderComponent.NotifyBtn />
-                        <HeaderComponent.More />
+                        <Home />
+                        <Social />
+                        <Order />
+                        <Chat />
+                        <Notify />
+                        <More />
                     </div>
                 </div>
                 <div
@@ -28,11 +36,14 @@ export default function Header() {
                         logo ? 'items-start' : 'items-center'
                     } lg:items-start`}
                 >
-                    <HeaderComponent.SearchBtn />
-                    <HeaderComponent.SignInBtn />
-                    <HeaderComponent.PostNewBtn />
+                    <Search />
+                    <div className="flex items-center h-9">
+                        <SignIn />
+                    </div>
+                    <Post />
                 </div>
             </div>
         </div>
     );
 }
+export default Header;

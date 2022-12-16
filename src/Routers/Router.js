@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import HomePage from '../Pages/Home/HomePage';
 import AdsPage from '../Pages/Ads/AdsPage';
 import BuyerPage from '../Pages/Buyer/BuyerPage';
@@ -10,18 +10,36 @@ import Login from '../Pages/Auth/Login';
 import Register from '../Pages/Auth/Register';
 import Profile from '../Pages/Profile/Profile';
 import Empty from '../Pages/Buyer/EmptyOrder';
-import AddPhone from '../Pages/Auth/AddPhone/AddPhone';
+import Updateprofile from '../Pages/Profile/UpdateProfile';
+import FormEdit from '../Pages/Profile/FormEdit';
+import Post from '../Pages/Posts/Post';
+import { useSelector } from 'react-redux';
+
 export const PublicRouter = {
-    HomePage: '/',
-    AdsPage: '/ads',
-    BuyerPage: '/buyer',
-    SellerPage: '/seller',
-    ChatPage: '/chat',
-    Login: '/login',
-    Register: '/register',
-    Profile: '/profile',
+    HomePage: { path: '/' },
+    AdsPage: { path: '/ads' },
+    BuyerPage: { path: '/buyer' },
+    SellerPage: { path: '/seller' },
+    ChatPage: { path: '/chat' },
+    Login: { path: '/login' },
+    Register: { path: '/register' },
+    Profile: { path: '/profile' },
+    Updateprofile: { path: '/profile/dashboard' },
+    FormEdit: { path: '/profile/dashboard/edit' },
+    Post: { path: '/dang-tin' },
+};
+const RouteDepend = {
+    AdsPage: { key: 0, path: '/ads', component: AdsPage, layout: LayOutDefaul },
+    ChatPage: { key: 1, path: '/chat', component: ChatPage, layout: NotFooterLayOut },
+    Profile: { key: 2, path: '/profile', component: Profile, layout: LayOutDefaul },
+    Updateprofile: { key: 3, path: '/profile/dashboard', component: Updateprofile, layout: NotFooterLayOut },
+    FormEdit: { key: 4, path: '/profile/dashboard/edit', component: FormEdit, layout: NotFooterLayOut },
+    Post: { key: 5, path: '/dang-tin', component: Post, layout: NotFooterLayOut },
 };
 export default function Routers() {
+    const isLogin = useSelector((state) => state.user.isLogin);
+    const directionLogin = <Navigate to="/login" replace />;
+    const directionHomepage = <Navigate to="/" replace />;
     return (
         <BrowserRouter>
             <Routes>
@@ -33,19 +51,36 @@ export default function Routers() {
                     }
                     path="/"
                 />
+                ,
+                {Object.values(RouteDepend).map((route) => {
+                    const Page = route.component;
+                    const path = route.path;
+                    const Layout = route.layout;
+                    return (
+                        <Route
+                            key={route.key}
+                            element={
+                                isLogin ? (
+                                    <Layout>
+                                        <Page />
+                                    </Layout>
+                                ) : (
+                                    directionLogin
+                                )
+                            }
+                            path={path}
+                        />
+                    );
+                })}
                 <Route
                     element={
-                        <LayOutDefaul>
-                            <AdsPage />
-                        </LayOutDefaul>
-                    }
-                    path="/ads"
-                />
-                <Route
-                    element={
-                        <LayOutDefaul>
-                            <BuyerPage />
-                        </LayOutDefaul>
+                        isLogin ? (
+                            <LayOutDefaul>
+                                <BuyerPage />
+                            </LayOutDefaul>
+                        ) : (
+                            directionLogin
+                        )
                     }
                     path="/buyer"
                 >
@@ -57,9 +92,13 @@ export default function Routers() {
                 </Route>
                 <Route
                     element={
-                        <LayOutDefaul>
-                            <SellerPage />
-                        </LayOutDefaul>
+                        isLogin ? (
+                            <LayOutDefaul>
+                                <SellerPage />
+                            </LayOutDefaul>
+                        ) : (
+                            directionLogin
+                        )
                     }
                     path="/seller"
                 >
@@ -69,39 +108,30 @@ export default function Routers() {
                     <Route path="order_delivered" element={<Empty />} />
                     <Route path="order_cancel" element={<Empty />} />
                 </Route>
+                {/* Login and register */}
                 <Route
                     element={
-                        <NotFooterLayOut>
-                            <ChatPage />
-                        </NotFooterLayOut>
-                    }
-                    path="/chat"
-                />
-                <Route
-                    element={
-                        <LayOutDefaul>
-                            <Login />
-                        </LayOutDefaul>
+                        isLogin ? (
+                            directionHomepage
+                        ) : (
+                            <LayOutDefaul>
+                                <Login />
+                            </LayOutDefaul>
+                        )
                     }
                     path="/login"
-                >
-                    <Route path="social_connect" element={<AddPhone />} />
-                </Route>
+                ></Route>
                 <Route
                     element={
-                        <LayOutDefaul>
-                            <Register />
-                        </LayOutDefaul>
+                        isLogin ? (
+                            directionHomepage
+                        ) : (
+                            <LayOutDefaul>
+                                <Register />
+                            </LayOutDefaul>
+                        )
                     }
                     path="/register"
-                />
-                <Route
-                    element={
-                        <LayOutDefaul>
-                            <Profile />
-                        </LayOutDefaul>
-                    }
-                    path="/profile"
                 />
             </Routes>
         </BrowserRouter>
