@@ -2,18 +2,14 @@ import { MoreIcon } from '../../../../access/image/Image';
 import { moreService, moreOthers } from '../../../../utils/constants/Constant';
 import { MoreOrderIcon, MoreOrderIcon2, MorePay, MoreLogOutIcon } from '../../../../access/svg/svg';
 import { isLogOut } from '../../../../Features/UserSlice';
-import { PublicRouter } from '../../../../Routers/Router';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 
 function PopUp() {
-    const navigate = useNavigate();
     const dispatch = useDispatch();
-    const handleLogOut = async () => {
+    const handleLogOut = () => {
         localStorage.removeItem('accessToken');
-        const data = {};
-        dispatch(isLogOut(data));
-        navigate(PublicRouter.Login.path);
+        dispatch(isLogOut({}));
+        window.location.reload();
     };
     return (
         <div className="w-[300px] bg-[#FFFFFF] border-[1px] border-solid border-[#00000026] popupShadow overflow-y-scroll max-h-[80vh]">
@@ -81,7 +77,7 @@ function PopUp() {
                         <MorePay />
                         <span className="text-[#222222] text-sm ml-3">Ví bán hàng</span>
                     </div>
-                    <a className="text-[#ffba00] text-sm font-bold mr-3">
+                    <a href="/" className="text-[#ffba00] text-sm font-bold mr-3">
                         Liên kết ngay
                         <i className="fa-solid fa-angle-right ml-[10px]"></i>
                     </a>

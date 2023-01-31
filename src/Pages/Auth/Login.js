@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { PublicRouter } from '../../Routers/Router';
 import { LoginImg } from '../../access/image/Image';
 import { LoginFbIcon, LoginAppleIcon, LoginGoogleIcon } from '../../access/svg/svg';
@@ -13,7 +13,6 @@ import { isLogin } from '../../Features/UserSlice';
 
 function Login() {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
     const { register, handleSubmit } = useForm();
     const onSubmit = async (data) => {
         try {
@@ -24,11 +23,8 @@ function Login() {
                     const token = response.data.token;
                     let decoded = jwt_decode(token);
                     localStorage.setItem('accessToken', token);
-                    setTimeout(() => {
-                        navigate(PublicRouter.HomePage.path);
-                    }, 2000);
-                    let payload = isLogin(decoded);
-                    dispatch(payload);
+                    dispatch(isLogin(decoded));
+                    window.location.reload();
                 }
                 // Sai thông tin đăng nhập
                 else if (response.status === 202) notifyError(response.data.message);

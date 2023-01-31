@@ -8,7 +8,7 @@ function Information() {
             <div className="flex p-[15px] mb-3 lg:w-1/2">
                 <img
                     className="w-20 h-20 rounded-[50%]"
-                    src="https://live.staticflickr.com/491/31818797506_41e52a8b36.jpg"
+                    src={data.avatar ? data.avatar : 'https://live.staticflickr.com/491/31818797506_41e52a8b36.jpg'}
                     alt="avatar"
                 ></img>
                 <div className="ml-[15px] flex-grow text-[#000000De]">

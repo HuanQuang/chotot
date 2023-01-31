@@ -1,11 +1,10 @@
 import { PublicRouter } from '../../Routers/Router';
 import { useNavigate, Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import AxiosClient from '../../utils/Api/Axios';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useDispatch } from 'react-redux';
 import { isLogin } from '../../Features/UserSlice';
 import { notifySuccess, notifyError } from '../../utils/Toast/Toast';
 
@@ -28,11 +27,8 @@ function FormEdit() {
     };
     const onSubmit = async (e) => {
         try {
-            const token = localStorage.getItem('accessToken');
             e.preventDefault();
-            await AxiosClient.put('account/', editData, {
-                headers: { Authorization: `Bearer ${token}` },
-            }).then((res) => {
+            await AxiosClient.put('account/', editData).then((res) => {
                 notifySuccess(res.data.message);
                 dispatch(isLogin(res.data.user));
             });

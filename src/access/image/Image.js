@@ -58,6 +58,8 @@ export const MoreIcon = {
     Gold: require('../image/svgexport-5.svg').default,
     DT: require('../image/dt.webp'),
 };
-
+export const PostCategory = {
+    empty: require('../image/empty-category.svg').default,
+};
 export const BuyerImg = { empty: require('../image/empty_order.png') };
 export const ProfileImg = { notFound: require('../image/not-found.svg').default };
