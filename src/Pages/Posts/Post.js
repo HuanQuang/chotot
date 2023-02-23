@@ -15,37 +15,50 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 function Post() {
     const [valueCategory, setValueCategory] = useState();
+    const [img, setImg] = useState();
+    const handleImage = (e) => {
+        const file = e.target.files;
+        const readers = [];
+        for (let i = 0; i < file.length; i++) {
+            const render = new FileReader();
+            render.readAsDataURL(file[i]);
+            render.onloadend = () => {
+                readers.push(render.result);
+            };
+        }
+        setImg(readers);
+    };
     let indexX;
     switch (valueCategory) {
         case 1:
-            indexX = <BdsHtml />;
+            indexX = <BdsHtml onImage={img} />;
             break;
         case 2:
-            indexX = <Xeco />;
+            indexX = <Xeco onImage={img} />;
             break;
         case 3:
-            indexX = <Dientu />;
+            indexX = <Dientu onImage={img} />;
             break;
         case 4:
-            indexX = <Job />;
+            indexX = <Job onImage={img} />;
             break;
         case 5:
-            indexX = <Pet />;
+            indexX = <Pet onImage={img} />;
             break;
         case 6:
-            indexX = <Food />;
+            indexX = <Food onImage={img} />;
             break;
         case 7:
-            indexX = <Machine />;
+            indexX = <Machine onImage={img} />;
             break;
         case 8:
-            indexX = <Dogiadung />;
+            indexX = <Dogiadung onImage={img} />;
             break;
         case 9:
-            indexX = <Mevabe />;
+            indexX = <Mevabe onImage={img} />;
             break;
         case 10:
-            indexX = <Fashion />;
+            indexX = <Fashion onImage={img} />;
             break;
         default:
     }
@@ -67,8 +80,18 @@ function Post() {
                         Xem thêm về <Link className="text-[#2275d3] underline">Quy định đăng tin của Chợ Tốt</Link>
                     </p>
                     <div className="h-[225px] w-full rounded opacity-60 bg-[#f4f4f4]">
-                        <div className="border-[2px] rounded border-dotted border-[#fe9900] w-full h-full flex items-center justify-center flex-col">
-                            <input type="file" tabIndex={-1} className="hidden" accept={true} multiple></input>
+                        <label
+                            for="imageInput"
+                            className="cursor-pointer border-[2px] rounded border-dotted border-[#fe9900] w-full h-full flex items-center justify-center flex-col"
+                        >
+                            <input
+                                type="file"
+                                className="hidden"
+                                id="imageInput"
+                                accept={'image/*, image/*'}
+                                multiple
+                                onChange={handleImage}
+                            ></input>
                             <div className="relative mb-3">
                                 <PostCameraIcon />
                                 <span className="absolute top-[-6px] right-[-10px]">
@@ -78,7 +101,7 @@ function Post() {
                             <p className="font-bold text-[#8c8c8c] text-[10px] p-[3px]">
                                 Hình có kích thước tối thiểu 240x240
                             </p>
-                        </div>
+                        </label>
                     </div>
                 </div>
                 <div className="mt-8 px-3 w-2/3">

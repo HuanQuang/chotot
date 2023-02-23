@@ -1,14 +1,19 @@
 import Product from '../Product/Product';
-import { listRender } from '../../utils/constants/Constant';
-
+import { useEffect, useState } from 'react';
+import AxiosClient from '../../utils/Api/Axios';
 function NewList() {
-    const renderList = listRender.map((item, key) => {
-        return <Product key={key} props={[item]} />;
-    });
+    const [listPost, getListPost] = useState();
+    useEffect(() => {
+        AxiosClient.get('post').then((res) => getListPost(res.data));
+    }, []);
     return (
         <div className="w-full">
             <h4 className="p-3 text-[17px] font-bold text-[#222222]">Tin đăng mới</h4>
-            <div className="flex flex-wrap">{renderList}</div>
+            <div className="flex flex-wrap">
+                {listPost?.map((item, key) => {
+                    return <Product props={[item, key]} />;
+                })}
+            </div>
         </div>
     );
 }

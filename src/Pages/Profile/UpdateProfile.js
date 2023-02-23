@@ -44,7 +44,14 @@ function Updateprofile() {
     // handle update avatar
     const onUpdate = async () => {
         try {
-            await AxiosClient.put('/account/updateAvatar', { img: avatarImg }).then((res) => {
+            const token = localStorage.getItem('accessToken');
+            await AxiosClient.put(
+                '/account/updateAvatar',
+                { img: avatarImg },
+                {
+                    headers: { Authorization: 'Bearer ' + token },
+                },
+            ).then((res) => {
                 if (res.status === 200) {
                     notifySuccess(res.data.message);
                     dispatch(isLogin(res.data.user));

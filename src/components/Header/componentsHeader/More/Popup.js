@@ -2,27 +2,28 @@ import { MoreIcon } from '../../../../access/image/Image';
 import { moreService, moreOthers } from '../../../../utils/constants/Constant';
 import { MoreOrderIcon, MoreOrderIcon2, MorePay, MoreLogOutIcon } from '../../../../access/svg/svg';
 import { isLogOut } from '../../../../Features/UserSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { PublicRouter } from '../../../../Routers/Router';
 
 function PopUp() {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const handleLogOut = () => {
         localStorage.removeItem('accessToken');
         dispatch(isLogOut({}));
-        window.location.reload();
+        navigate(PublicRouter.Login.path);
     };
+    const user = useSelector((state) => state.user.userData?.fullName || state.user.userData?.phone);
+    const avatar = useSelector((state) => state.user.userData?.avatar);
     return (
         <div className="w-[300px] bg-[#FFFFFF] border-[1px] border-solid border-[#00000026] popupShadow overflow-y-scroll max-h-[80vh]">
             <div className="flex px-3 pt-3">
                 <div className="w-12 h-12 rounded-full">
-                    <img
-                        className="rounded-full w-full h-full"
-                        src="https://cdn.chotot.com/uac2/24191959"
-                        alt="avatar"
-                    ></img>
+                    <img className="rounded-full w-full h-full" src={avatar} alt="avatar"></img>
                 </div>
                 <div className="pl-3">
-                    <h3 className="text-[#222222] font-bold text-base mb-[10px] mr-12">Quang Huấn</h3>
+                    <h3 className="text-[#222222] font-bold text-base mb-[10px] mr-12">{user}</h3>
                     <div className="flex text-xs">
                         <span className="text-[#333333]">0.0</span>
                         <div className="text-[#c0c0c0] mx-1">

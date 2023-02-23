@@ -7,15 +7,14 @@ import AxiosClient from '../../../utils/Api/Axios';
 import { isLogin } from '../../../Features/UserSlice';
 function SignIn() {
     const dispatch = useDispatch();
-    const token = localStorage.getItem('accessToken');
 
+    const token = localStorage.getItem('accessToken');
     useEffect(() => {
         async function getUserLogin() {
             await AxiosClient.get('account/me', {
-                headers: { Authorization: `Bearer ${token}` },
+                headers: { Authorization: 'Bearer ' + token },
             }).then((res) => {
-                const user = res.data;
-                dispatch(isLogin(user));
+                dispatch(isLogin(res.data));
             });
         }
         getUserLogin();

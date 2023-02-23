@@ -12,8 +12,10 @@ import Profile from '../Pages/Profile/Profile';
 import Empty from '../Pages/Buyer/EmptyOrder';
 import Updateprofile from '../Pages/Profile/UpdateProfile';
 import FormEdit from '../Pages/Profile/FormEdit';
+import NotFound from '../Pages/Error/Error';
 import Post from '../Pages/Posts/Post';
 import { useSelector } from 'react-redux';
+import DetailPost from '../Pages/DetailPost/DetailPost';
 
 export const PublicRouter = {
     HomePage: { path: '/' },
@@ -132,6 +134,15 @@ export default function Routers() {
                         )
                     }
                     path="/register"
+                />
+                <Route path="/" element={<NotFound />} exact={false} />
+                <Route
+                    path="/post/:id"
+                    element={
+                        <LayOutDefaul>
+                            <DetailPost />
+                        </LayOutDefaul>
+                    }
                 />
             </Routes>
         </BrowserRouter>

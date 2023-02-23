@@ -34,6 +34,11 @@ input {
     background: url('../../access/image/login_desktop_background.webp') no-repeat;
     background-size: cover;
 }
+.bgDetailPost {
+    background: url('https://static.chotot.com/storage/logo/svg/chotot-logo-text.svg') 50% no-repeat;
+    background-color: #eee;
+    background-size: 50% auto;
+}
 .swiper-pagination-bullet.swiper-pagination-bullet-active {
     background-color: #9b9b9b;
 }
@@ -54,6 +59,36 @@ input {
 }
 .popupShadow1 {
     box-shadow: 0px 0px 6px rgb(0 0 0 / 15%);
+}
+.lds-dual-ring {
+    z-index: 9999;
+    height: 80px;
+    position: fixed;
+    top: 50%;
+    right: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.lds-dual-ring:after {
+    content: ' ';
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #07bc0c;
+    border-color: #07bc0c transparent #07bc0c transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 @media screen and (max-width: 779px) {
     .loginShadow {

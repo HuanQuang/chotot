@@ -28,7 +28,10 @@ function FormEdit() {
     const onSubmit = async (e) => {
         try {
             e.preventDefault();
-            await AxiosClient.put('account/', editData).then((res) => {
+            const token = localStorage.getItem('accessToken');
+            await AxiosClient.put('account/', editData, {
+                headers: { Authorization: 'Bearer ' + token },
+            }).then((res) => {
                 notifySuccess(res.data.message);
                 dispatch(isLogin(res.data.user));
             });
