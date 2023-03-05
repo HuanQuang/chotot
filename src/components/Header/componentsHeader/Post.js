@@ -27,7 +27,7 @@ export default Post;
 
 function PostMobile({ props, iconProps }) {
     return (
-        <Link to={PublicRouter.Post.path} className={`px-4 py-2 rounded ${props}`}>
+        <Link to={PublicRouter.Post.path} className={`px-4 py-2 ${props}`}>
             <div className=" w-6 h-6 flex items-center justify-center">
                 <NoteIcon props={iconProps} />
             </div>
