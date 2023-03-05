@@ -17,17 +17,18 @@ function Header() {
         };
         window.addEventListener('scroll', handleScroll);
     }, []);
+    const classNamePc = 'hidden lg:flex items-center lg:px-6 gap-x-2 hover:opacity-80';
     return (
         <div className="w-full bg-[#ffba00] fixed top-0 left-0 right-0 z-10">
             <div className="max-w-[936px] mx-auto">
                 <div className={`w-full h-[52px] ${logo ? 'flex' : 'hidden'} items-center justify-center lg:flex`}>
                     <img className="w-[96px] h-9 cursor-pointer" src={Image.logo} alt="Logo"></img>
                     <div className="hidden lg:flex justify-end grow text-sm tracking-[0.1px]">
-                        <Home />
-                        <Social />
+                        <Home props={classNamePc} />
+                        <Social props={classNamePc} />
                         <Order />
-                        <Chat />
-                        <Notify />
+                        <Chat props={classNamePc} />
+                        <Notify props={classNamePc} />
                         <More />
                     </div>
                 </div>
@@ -38,9 +39,9 @@ function Header() {
                 >
                     <Search />
                     <div className="flex items-center h-9">
-                        <SignIn />
+                        <SignIn props={'hidden lg:flex items-center gap-x-2 cursor-pointer'} />
                     </div>
-                    <Post />
+                    <Post props={classNamePc} />
                 </div>
             </div>
         </div>

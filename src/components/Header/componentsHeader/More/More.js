@@ -19,7 +19,6 @@ function More({ props }) {
                     <PopUp />
                 </div>
             )}
-            hideOnClick="toggle"
             interactive={true}
             visible={visible}
             onClickOutside={hide}

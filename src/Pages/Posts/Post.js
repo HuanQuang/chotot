@@ -72,9 +72,9 @@ function Post() {
         </div>
     );
     return (
-        <div className="pt-4 px-[15%] pb-12">
-            <div className="bg-[#fff] max-w-[960px] mb-5 flex">
-                <div className="mt-8 px-4 w-1/3">
+        <div className="pt-4 lg:px-[15%] pb-12">
+            <div className="bg-[#fff] max-w-[960px] mb-5 flex flex-col lg:flex-row">
+                <div className="mt-8 px-4 w-full lg:w-1/3">
                     <h5 className="font-bold text-[#222] mb-2">Ảnh/ video sản phẩm</h5>
                     <p className="text-[#777] mb-3 text-sm">
                         Xem thêm về <Link className="text-[#2275d3] underline">Quy định đăng tin của Chợ Tốt</Link>
@@ -104,7 +104,7 @@ function Post() {
                         </label>
                     </div>
                 </div>
-                <div className="mt-8 px-3 w-2/3">
+                <div className="mt-8 px-3 w-full lg:w-2/3">
                     <select
                         className="bg-[#fff] w-full border-[#cacaca] h-12 rounded border-[1px] border-solid px-3 outline-none mb-6"
                         onChange={(e) => {

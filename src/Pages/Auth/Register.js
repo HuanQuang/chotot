@@ -39,7 +39,9 @@ function Register() {
         resolver: yupResolver(schema),
     });
     const isError = Object.keys(errors).length;
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     // Set color active for Button submit
     useEffect(() => {
         if (isError) setBtnColor('');
@@ -73,7 +75,7 @@ function Register() {
                 <span className="text-[10px] text-[#9b9b9b] mx-1 leading-[2] flex items-center">&#8250;&#8250;</span>
                 <p className="text-xs text-[#222222]">Đăng kí</p>
             </div>
-            <div className="w-[340px] lg:bg-[#fff] mx-auto loginShadow p-5">
+            <div className="w-full lg:w-[340px] lg:bg-[#fff] mx-auto loginShadow p-5">
                 <div className="flex justify-between mb-1">
                     <div className="">
                         <h3 className="text-xl text-[#ffba00] font-bold">Đăng ký</h3>

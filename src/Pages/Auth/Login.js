@@ -10,11 +10,15 @@ import jwt_decode from 'jwt-decode';
 import { notifyError, notifySuccess } from '../../utils/Toast/Toast';
 import { useDispatch } from 'react-redux';
 import { isLogin } from '../../Features/UserSlice';
+import { useEffect } from 'react';
 
 function Login() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { register, handleSubmit } = useForm();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const onSubmit = async (data) => {
         try {
             await AxiosClient.post('account/login', data).then((response) => {
@@ -25,9 +29,8 @@ function Login() {
                     let decoded = jwt_decode(token);
                     localStorage.setItem('accessToken', token);
                     dispatch(isLogin(decoded));
-                    setTimeout(() => {
-                        navigate(PublicRouter.HomePage.path);
-                    }, 2000);
+
+                    navigate(PublicRouter.HomePage.path);
                 }
                 // Sai thông tin đăng nhập
                 else if (response.status === 202) notifyError(response.data.message);
@@ -48,7 +51,7 @@ function Login() {
                 <span className="text-[10px] text-[#9b9b9b] mx-1 leading-[2] flex items-center">&#8250;&#8250;</span>
                 <p className="text-xs text-[#222]">Đăng nhập</p>
             </div>
-            <div className="w-[340px] lg:bg-[#fff] mx-auto loginShadow p-5">
+            <div className="w-full lg:w-[340px] lg:bg-[#fff] mx-auto loginShadow p-5">
                 <div className="flex justify-between mb-1">
                     <div className="">
                         <h3 className="text-xl text-[#ffba00] font-bold">Đăng nhập</h3>
@@ -68,6 +71,7 @@ function Login() {
                         placeholder="Nhập mật khẩu của bạn"
                         type="password"
                         name="password"
+                        autoComplete="true"
                         {...register('password', { required: true })}
                     ></input>
                     <button className="rounded font-normal bg-[#cacaca] text-[#fff] text-sm py-2 px-4" type="submit">

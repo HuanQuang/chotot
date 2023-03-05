@@ -82,7 +82,7 @@ function Updateprofile() {
                 Thông Tin Cá Nhân
             </h3>
 
-            <div className="flex pt-3 bg-[#fff] relative">
+            <div className="flex-col flex lg:flex-row pt-3 bg-[#fff] relative ">
                 <div className="w-1/5 p-[10px] flex flex-col">
                     <div className="relative w-[110px] h-[110px] mx-auto rounded-full">
                         <img

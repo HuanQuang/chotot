@@ -10,8 +10,8 @@ function NewList() {
         <div className="w-full">
             <h4 className="p-3 text-[17px] font-bold text-[#222222]">Tin đăng mới</h4>
             <div className="flex flex-wrap">
-                {listPost?.map((item, key) => {
-                    return <Product props={[item, key]} />;
+                {listPost?.map((item) => {
+                    return <Product post={item} key={item._id} />;
                 })}
             </div>
         </div>

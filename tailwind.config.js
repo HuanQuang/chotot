@@ -7,6 +7,7 @@ module.exports = {
       sm: { min: "540px" },
       md: { min: "680px" },
       lg: { min: "780px" },
+      xl: { min: "840px" },
     },
 
     // screens: {

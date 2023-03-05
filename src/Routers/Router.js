@@ -16,6 +16,7 @@ import NotFound from '../Pages/Error/Error';
 import Post from '../Pages/Posts/Post';
 import { useSelector } from 'react-redux';
 import DetailPost from '../Pages/DetailPost/DetailPost';
+import UserProfile from '../Pages/Profile/UserProfile';
 
 export const PublicRouter = {
     HomePage: { path: '/' },
@@ -141,6 +142,14 @@ export default function Routers() {
                     element={
                         <LayOutDefaul>
                             <DetailPost />
+                        </LayOutDefaul>
+                    }
+                />
+                <Route
+                    path="/users/:userId"
+                    element={
+                        <LayOutDefaul>
+                            <UserProfile />
                         </LayOutDefaul>
                     }
                 />

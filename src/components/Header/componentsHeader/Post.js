@@ -4,7 +4,7 @@ import { PublicRouter } from '../../../Routers/Router';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/themes/light.css';
-function Post() {
+function Post({ props }) {
     return (
         <Tippy
             content={
@@ -16,10 +16,7 @@ function Post() {
             placement="bottom"
             maxWidth={250}
         >
-            <Link
-                to={PublicRouter.Post.path}
-                className="hidden lg:flex items-center cursor-pointer gap-x-2 bg-[#ff8800] text-white px-4 py-2 rounded hover:opacity-80"
-            >
+            <Link to={PublicRouter.Post.path} className={`bg-[#ff8800] text-white px-4 py-2 rounded ${props}`}>
                 <NoteIcon />
                 <span className="text-[14px] font-bold">ĐĂNG TIN</span>
             </Link>
@@ -27,3 +24,16 @@ function Post() {
     );
 }
 export default Post;
+
+function PostMobile({ props, iconProps }) {
+    return (
+        <Link to={PublicRouter.Post.path} className={`px-4 py-2 rounded ${props}`}>
+            <div className=" w-6 h-6 flex items-center justify-center">
+                <NoteIcon props={iconProps} />
+            </div>
+            <span className="lg:text-[14px] lg:font-bold">Đăng tin</span>
+        </Link>
+    );
+}
+
+export { PostMobile };

@@ -20,8 +20,10 @@ function Order() {
             interactive={true}
             theme="light"
         >
-            <Link className="hidden lg:flex items-center px-6 gap-x-2">
-                <CartIcon />
+            <Link className="hidden lg:flex items-center lg:px-6 gap-x-2">
+                <div className="w-6 h-6">
+                    <CartIcon />
+                </div>
                 Đơn hàng
             </Link>
         </Tippy>

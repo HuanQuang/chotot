@@ -1,37 +1,42 @@
 import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import AxiosClient from '../../utils/Api/Axios';
+import LikeButton from './LikeButton';
 import {
     ShareIconDetailPost,
-    HeathIconDetailPost,
     LocationIconDetailPost,
     TimeIconDetailPost,
     SecuryIconDetailPost,
 } from '../../access/svg/svg';
-
+import Poster from './Poster';
 function DetailPost() {
     const { id } = useParams();
     const [data, setData] = useState({});
+    const [currentImg, setCurrentImg] = useState();
+    const [active, setActive] = useState();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     useEffect(() => {
         AxiosClient.get(`post/${id}`).then((res) => setData(res.data));
     }, [id]);
+    useEffect(() => {
+        setCurrentImg(data.img ? data.img[0] : '');
+    }, [data]);
     const information = data.information ? Object.entries(data.information) : [];
-    const [currentImg, setCurrentImg] = useState(data?.img[0]);
-    const [active, setActive] = useState();
-    console.log(data);
     return (
         <div className="max-w-[960px] mx-auto text-[#222222] bg-[#f4f4f4]">
-            <div className="hidden lg:flex my-4 items-center px-4 bg-[#f4f4f4]">
-                <Link className="text-xs text-[#2a5079]" to={'/'}>
+            <div className="flex my-4 items-center px-4 bg-[#f4f4f4]">
+                <Link className="text-xs text-[#2a5079] whitespace-nowrap" to={'/'}>
                     Trang chủ
                 </Link>
                 <span className="text-[10px] text-[#9b9b9b] mx-1 leading-[2] flex items-center">&#8250;&#8250;</span>
-                <p className="text-xs text-[#222]">{data.type}</p>
+                <p className="text-xs text-[#222] whitespace-nowrap">{data.type}</p>
                 <span className="text-[10px] text-[#9b9b9b] mx-1 leading-[2] flex items-center">&#8250;&#8250;</span>
-                <p className="text-xs text-[#222]">{data.title}</p>
+                <p className="text-xs text-[#222] whitespace-nowrap">{data.title}</p>
             </div>
-            <div className="flex">
-                <div className="w-2/3 px-4">
+            <div className="flex flex-col lg:flex-row">
+                <div className="w-full lg:w-2/3 lg:px-4">
                     <div>
                         <div className="flex justify-center bgDetailPost">
                             <img
@@ -72,25 +77,28 @@ function DetailPost() {
                                         <ShareIconDetailPost />
                                         <span className="ml-1">Chia sẻ</span>
                                     </div>
-                                    <div className="flex items-center">
-                                        <HeathIconDetailPost />
-                                        <span className="ml-1">Lưu tin</span>
-                                    </div>
+                                    <LikeButton id={id} />
                                 </div>
                             </div>
                             <div className="flex items-center">
-                                <LocationIconDetailPost />
+                                <div className="w-5 h-5">
+                                    <LocationIconDetailPost />
+                                </div>
                                 <span className="ml-1 text-[#777] font-normal text-sm leading-6">{data.address}</span>
                             </div>
                             <div className="flex items-center">
-                                <TimeIconDetailPost />
+                                <div className="w-5 h-5">
+                                    <TimeIconDetailPost />
+                                </div>
                                 <span className="ml-1 text-[#777] font-normal text-sm leading-6">
                                     {' '}
                                     {data.createdAt?.substr(0, 10)}
                                 </span>
                             </div>
                             <div className="flex items-center">
-                                <SecuryIconDetailPost />
+                                <div className="w-5 h-5">
+                                    <SecuryIconDetailPost />
+                                </div>
                                 <span className="ml-1 text-[#777] font-normal text-sm leading-6">
                                     Tin đã được kiểm duyệt.
                                 </span>
@@ -104,11 +112,11 @@ function DetailPost() {
                         </div>
                         <div className="my-2 p-3 bg-[#ffffff]">
                             <h1 className="text-base font-bold">Đặc điểm chi tiết</h1>
-                            <p className="flex flex-wrap">
-                                {information?.map((item) => {
+                            <p className="lg:flex flex-wrap">
+                                {information?.map((item, index) => {
                                     return (
-                                        <li className="text-sm font-normal leading-5 my-2 w-1/2">
-                                            {item[0]} : {item[1]}
+                                        <li key={index} className="text-sm font-normal leading-5 my-2 w-full lg:w-1/2">
+                                            {item[1]}
                                         </li>
                                     );
                                 })}
@@ -120,20 +128,7 @@ function DetailPost() {
                         </div>
                     </div>
                 </div>
-                <div className="w-1/3">
-                    <div className="mb-[10px] p-3 flex">
-                        <div className="w-[52px]">
-                            <img
-                                src="https://cdn.chotot.com/uac2/23816612"
-                                alt="avatar"
-                                className="w-full rounded-full"
-                            ></img>
-                        </div>
-                        <div className="pl-2">
-                            <h1>{data.poster.fullName}</h1>
-                        </div>
-                    </div>
-                </div>
+                <Poster poster={data.poster} />
             </div>
         </div>
     );
