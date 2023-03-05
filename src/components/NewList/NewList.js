@@ -4,7 +4,10 @@ import AxiosClient from '../../utils/Api/Axios';
 function NewList() {
     const [listPost, getListPost] = useState();
     useEffect(() => {
-        AxiosClient.get('post').then((res) => getListPost(res.data));
+        async function fetchData() {
+            await AxiosClient.get('post').then((res) => getListPost(res.data));
+        }
+        fetchData();
     }, []);
     return (
         <div className="w-full">
