@@ -26,14 +26,14 @@ function DetailPost() {
     const information = data.information ? Object.entries(data.information) : [];
     return (
         <div className="max-w-[960px] mx-auto text-[#222222] bg-[#f4f4f4]">
-            <div className="flex my-4 items-center px-4 bg-[#f4f4f4]">
+            <div className="flex my-4 items-center px-4 bg-[#f4f4f4] w-full">
                 <Link className="text-xs text-[#2a5079] whitespace-nowrap" to={'/'}>
                     Trang chủ
                 </Link>
                 <span className="text-[10px] text-[#9b9b9b] mx-1 leading-[2] flex items-center">&#8250;&#8250;</span>
                 <p className="text-xs text-[#222] whitespace-nowrap">{data.type}</p>
                 <span className="text-[10px] text-[#9b9b9b] mx-1 leading-[2] flex items-center">&#8250;&#8250;</span>
-                <p className="text-xs text-[#222] whitespace-nowrap">{data.title}</p>
+                <p className="text-xs text-[#222] whitespace-nowrap overflow-hidden text-ellipsis">{data.title}</p>
             </div>
             <div className="flex flex-col lg:flex-row">
                 <div className="w-full lg:w-2/3 lg:px-4">
