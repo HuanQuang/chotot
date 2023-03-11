@@ -10,9 +10,7 @@ function SignIn({ props }) {
 
     useEffect(() => {
         async function getUserLogin() {
-            await AxiosClient.post('account/me', {
-                headers: { Authorization: 'Bearer ' + localStorage.getItem('accessToken') },
-            }).then((res) => {
+            await AxiosClient.post('account/me').then((res) => {
                 dispatch(isLogin(res.data));
             });
         }

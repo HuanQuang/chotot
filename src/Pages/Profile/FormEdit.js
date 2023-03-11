@@ -28,14 +28,13 @@ function FormEdit() {
     const onSubmit = async (e) => {
         try {
             e.preventDefault();
-            await AxiosClient.put('account/', editData, {
-                headers: { Authorization: 'Bearer ' + localStorage.getItem('accessToken') },
-            }).then((res) => {
+            await AxiosClient.put('account/', editData).then((res) => {
                 notifySuccess(res.data.message);
                 dispatch(isLogin(res.data.user));
             });
             setTimeout(() => navigate(PublicRouter.Profile.path), 3000);
         } catch (error) {
+            console.log(error);
             notifyError(error);
         }
     };

@@ -15,7 +15,7 @@ function YourPost({ userId }) {
                 .catch((err) => console.log(err));
         }
         checkUser();
-    }, []);
+    }, [userId]);
     return (
         <div className="bg-[#ffffff] profileShadow  p-[15px] mb-[15px]">
             <h2 className="pb-[15px] border-b-[1px] border-solid border-[#eee] font-bold text-lg text-[#222222]">

@@ -5,7 +5,6 @@ import { ToastContainer } from 'react-toastify';
 import { notifySuccess, notifyError } from '../../../utils/Toast/Toast';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import { useSelector } from 'react-redux';
 import AxiosClient from '../../../utils/Api/Axios';
 import InputField from './InputField';
 import { schemaFood } from '../../../utils/Yup schema/Yup';
@@ -13,7 +12,6 @@ import SpinLoading from '../../../components/SpinLoading/SpinLoading';
 import { useState } from 'react';
 
 function Food({ onImage }) {
-    const userID = useSelector((state) => state.user.userData.id);
     const [loading, setLoading] = useState(false);
     const {
         register,
@@ -24,7 +22,6 @@ function Food({ onImage }) {
         setLoading(true);
         try {
             await AxiosClient.post('post', {
-                userID: userID,
                 type: 'Thực phẩm',
                 title: data.title,
                 description: data.descDetail,

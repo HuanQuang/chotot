@@ -7,24 +7,22 @@ import AxiosClient from '../../utils/Api/Axios';
 function LikeButton({ id }) {
     const navigate = useNavigate();
     const isLogin = useSelector((state) => state.user.isLogin);
-    const idUser = useSelector((state) => state.user.userData.id);
     const [liked, setLiked] = useState(false);
     useEffect(() => {
         // Gọi API endpoint để kiểm tra xem post đã được like hay chưa
         async function checkLike() {
-            if (isLogin) {
-                AxiosClient.post(`post/${id}/is-liked`, { idUser: idUser })
-                    .then((res) => {
-                        setLiked(res.data);
-                    })
-                    .catch((err) => console.log(err));
-            }
+            await AxiosClient.post(`post/${id}/is-liked`)
+                .then((res) => {
+                    setLiked(res.data);
+                })
+                .catch((err) => console.log(err));
         }
+
         checkLike();
-    }, [isLogin]);
+    }, []);
     const handleLikePost = () => {
         if (isLogin) {
-            AxiosClient.put(`post/${id}/is-liked`, { idUser: idUser, checked: liked })
+            AxiosClient.put(`post/${id}/is-liked`, { checked: liked })
                 .then((res) => setLiked(res.data))
                 .catch((err) => console.log(err));
         } else navigate(PublicRouter.Login.path);

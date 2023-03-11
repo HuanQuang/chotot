@@ -11,7 +11,7 @@ function PopUp() {
     const navigate = useNavigate();
     const handleLogOut = () => {
         localStorage.removeItem('accessToken');
-        dispatch(isLogOut({}));
+        dispatch(isLogOut());
         navigate(PublicRouter.Login.path);
     };
     const user = useSelector((state) => state.user.userData?.fullName || state.user.userData?.phone);
@@ -107,11 +107,9 @@ function PopUp() {
                         </div>
                     );
                 })}
-                <div className="flex py-2 px-3 items-center cursor-pointer">
+                <div className="flex py-2 px-3 items-center cursor-pointer" onClick={handleLogOut}>
                     <MoreLogOutIcon />
-                    <span className="text-[#222222] text-sm ml-3" onClick={handleLogOut}>
-                        Đăng xuất
-                    </span>
+                    <span className="text-[#222222] text-sm ml-3">Đăng xuất</span>
                 </div>
             </div>
         </div>

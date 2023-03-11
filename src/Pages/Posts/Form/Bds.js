@@ -3,7 +3,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import Title from './Title';
 import AxiosClient from '../../../utils/Api/Axios';
-import { useSelector } from 'react-redux';
 import Address from './Address';
 import { ToastContainer } from 'react-toastify';
 import { notifySuccess, notifyError } from '../../../utils/Toast/Toast';
@@ -13,7 +12,6 @@ import SpinLoading from '../../../components/SpinLoading/SpinLoading';
 import { useState } from 'react';
 // Form bất động sản
 function BdsHtml({ onImage }) {
-    const userID = useSelector((state) => state.user.userData.id);
     const [loading, setLoading] = useState(false);
     const {
         register,
@@ -24,7 +22,6 @@ function BdsHtml({ onImage }) {
         setLoading(true);
         try {
             await AxiosClient.post('post', {
-                userID: userID,
                 type: 'Bất động sản',
                 title: data.title,
                 description: data.descDetail,

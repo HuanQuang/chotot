@@ -10,6 +10,9 @@ function UserProfile() {
     const { userId } = useParams();
     const [data, setData] = useState();
     useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+    useEffect(() => {
         async function fetchData() {
             await AxiosClient.get(`account/${userId}`).then((res) => {
                 setData(res.data);
@@ -18,7 +21,7 @@ function UserProfile() {
         fetchData();
     }, [userId]);
     return (
-        <div className="max-w-[936px] mx-auto bg-[#f1f1f1] px-[15px]">
+        <div className="max-w-[936px] mx-auto bg-[#f1f1f1] lg:px-[15px]">
             <div className="hidden lg:flex my-4 items-center ">
                 <Link className="text-xs text-[#2a5079]" to={PublicRouter.HomePage.path}>
                     Trang chủ

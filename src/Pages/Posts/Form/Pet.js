@@ -5,7 +5,6 @@ import { ToastContainer } from 'react-toastify';
 import { notifySuccess, notifyError } from '../../../utils/Toast/Toast';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import { useSelector } from 'react-redux';
 import AxiosClient from '../../../utils/Api/Axios';
 import InputField from './InputField';
 import { schemaPet } from '../../../utils/Yup schema/Yup';
@@ -14,7 +13,6 @@ import { useState } from 'react';
 
 function Pet({ onImage }) {
     const [loading, setLoading] = useState(false);
-    const userID = useSelector((state) => state.user.userData.id);
     const {
         register,
         handleSubmit,
@@ -24,7 +22,6 @@ function Pet({ onImage }) {
         setLoading(true);
         try {
             await AxiosClient.post('post', {
-                userID: userID,
                 type: 'Thú cưng',
                 title: data.title,
                 description: data.descDetail,

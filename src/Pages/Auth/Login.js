@@ -26,10 +26,9 @@ function Login() {
                 if (response.status === 200) {
                     notifySuccess(response.data.message);
                     const token = response.data.token;
-                    let decoded = jwt_decode(token);
                     localStorage.setItem('accessToken', token);
+                    let decoded = jwt_decode(token);
                     dispatch(isLogin(decoded));
-
                     navigate(PublicRouter.HomePage.path);
                 }
                 // Sai thông tin đăng nhập

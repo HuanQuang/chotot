@@ -17,6 +17,7 @@ import Post from '../Pages/Posts/Post';
 import { useSelector } from 'react-redux';
 import DetailPost from '../Pages/DetailPost/DetailPost';
 import UserProfile from '../Pages/Profile/UserProfile';
+import SearchResualPage from '../Pages/Search/Search';
 
 export const PublicRouter = {
     HomePage: { path: '/' },
@@ -150,6 +151,14 @@ export default function Routers() {
                     element={
                         <LayOutDefaul>
                             <UserProfile />
+                        </LayOutDefaul>
+                    }
+                />
+                <Route
+                    path="/search=:key"
+                    element={
+                        <LayOutDefaul>
+                            <SearchResualPage />
                         </LayOutDefaul>
                     }
                 />

@@ -9,9 +9,9 @@ const UserSlice = createSlice({
             state.isLogin = true;
             state.userData = data;
         },
-        isLogOut: (state, action) => {
+        isLogOut: (state) => {
             state.isLogin = false;
-            state.userData = action.payload;
+            state.userData = {};
         },
     },
 });
