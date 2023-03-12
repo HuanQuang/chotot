@@ -1,6 +1,6 @@
 import axios from 'axios';
 const AxiosClient = axios.create({
-    baseURL: process.env.REACT_APP_BASE_URL || 'http://localhost:8000/api/',
+    baseURL: process.env.REACT_APP_BASE_URL || 'https://server-cho-tot.vercel.app/api/',
     // headers: { Authorization: 'Bearer ' + localStorage.getItem('accessToken') },
 });
 
